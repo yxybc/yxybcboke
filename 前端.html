@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>前端入门详细教程</title>
+<style>
+/* 加载动画 */
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #121212;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 2s ease;
+}
+.loader.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+.loader-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #282828;
+  border-top: 3px solid #8ab4f8;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* 全局样式 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  max-width: 700px;
+  margin: 60px auto;
+  padding: 0 22px;
+  font: 16px/1.8 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: linear-gradient(135deg, oklab(34.846% 0 -0.00004), #103550);
+  background-attachment: fixed;
+  color: #e0e0e0;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+body.loaded {
+  opacity: 1;
+}
+
+a {
+  color: #8ab4f8;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+h1 {
+  font-size: 2rem;
+  margin: 20px 0 30px;
+  background: linear-gradient(to right, #8ab4f8, #cfe0ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+h2 {
+  font-size: 1.4rem;
+  margin: 50px 0 20px;
+  color: #cfe0ff;
+  border-left: 3px solid #8ab4f8;
+  padding-left: 12px;
+}
+
+h3 {
+  font-size: 1.15rem;
+  margin: 30px 0 12px;
+  color: #a0c8ff;
+}
+
+p {
+  margin-bottom: 18px;
+}
+
+ul, ol {
+  margin: 0 0 20px 22px;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+/* 代码块 */
+pre {
+  background: #1a1a1d;
+  padding: 18px;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 20px 0;
+  border: 1px solid #333;
+}
+code {
+  font-family: Consolas, monospace;
+  color: #cfe0ff;
+}
+
+/* 提示框 */
+.tip {
+  background: rgba(138, 180, 248, 0.08);
+  border-left: 3px solid #8ab4f8;
+  padding: 14px 16px;
+  margin: 22px 0;
+  border-radius: 0 6px 6px 0;
+}
+
+/* 返回首页 */
+.back {
+  display: inline-block;
+  margin-bottom: 30px;
+  color: #ccc;
+  font-size: 0.95rem;
+}
+
+/* 页脚 */
+footer {
+  margin-top: 80px;
+  padding-top: 20px;
+  border-top: 1px solid #2a2a2a;
+  color: #999;
+  font-size: 0.9rem;
+  text-align: center;
+}
+</style>
+</head>
+
+<body>
+<!-- 加载动画 -->
+<div class="loader">
+  <div class="loader-spinner"></div>
+</div>
+
+<a href="博客.html" class="back">← 返回首页</a>
+
+<h1>前端入门详细教程</h1>
+
+<div class="tip">
+  本教程面向<strong>完全零基础</strong>新手，从零开始，介绍主流前端技术，你可以根据自己的需求自由选择学习方向。
+</div>
+
+<h2>一、前端到底是什么？</h2>
+<p>
+前端 = 浏览器里<strong>用户能看到、能操作</strong>的所有界面。
+包括网站、小程序、APP页面、后台管理系统、H5活动页等。
+</p>
+
+<p>前端由三大核心技术组成：</p>
+<ul>
+  <li><strong>HTML</strong> —— 负责页面结构（标题、段落、图片、按钮等）</li>
+  <li><strong>CSS</strong> —— 负责页面样式（颜色、布局、字体、动画、美观度）</li>
+  <li><strong>JavaScript</strong> —— 负责交互逻辑（点击、弹窗、请求数据、动态效果）</li>
+</ul>
+
+<p>所有前端框架、库、工具，都是基于这三者扩展而来。</p>
+
+<h2>二、学习前端需要什么基础？</h2>
+<p><strong>不需要任何基础。</strong></p>
+<ul>
+  <li>不需要会英语</li>
+  <li>不需要会数学</li>
+  <li>不需要懂编程</li>
+  <li>只需要会用电脑、会保存文件、会打开浏览器</li>
+</ul>
+<p>任何年龄、任何专业都可以学。</p>
+
+<h2>三、第一步：搭建最简单的网页（HTML）</h2>
+<p>任何网页，最基础结构都是固定的，如下：</p>
+
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="zh-CN"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title>网页标题</title>
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;这是一个标题&lt;/h1&gt;
+  &lt;p&gt;这是一段文字&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>你只需要：</p>
+<ol>
+  <li>新建文本文档</li>
+  <li>复制上面代码</li>
+  <li>保存为 <code>index.html</code></li>
+  <li>双击用浏览器打开</li>
+</ol>
+<p>这就是你第一个网页。</p>
+
+<h2>四、第二步：让页面变好看（CSS）</h2>
+<p>CSS 用来控制颜色、大小、位置、布局、动画。</p>
+
+<h3>最简单的 CSS 写法</h3>
+<pre><code>&lt;style&gt;
+  body {
+    background: #f5f5f5;
+    color: #333;
+    font-size: 16px;
+  }
+  h1 {
+    color: #2d7ff9;
+  }
+&lt;/style&gt;
+</code></pre>
+
+<p>常见用途：</p>
+<ul>
+  <li>改变背景色、文字颜色</li>
+  <li>设置居中、宽度、间距</li>
+  <li>制作圆角、阴影、渐变</li>
+  <li>做动画、过渡效果</li>
+  <li>适配手机、平板、电脑（响应式）</li>
+</ul>
+
+<h2>五、第三步：让页面动起来（JavaScript）</h2>
+<p>JS 实现交互，比如：</p>
+<ul>
+  <li>点击按钮弹出提示</li>
+  <li>轮播图切换</li>
+  <li>表单验证</li>
+  <li>请求后端数据展示到页面</li>
+</ul>
+
+<pre><code>&lt;script&gt;
+  alert('欢迎学习前端！');
+&lt;/script&gt;
+</code></pre>
+
+<h2>六、学完基础后，可以选择的方向</h2>
+<p>这里介绍<strong>目前最主流、大家最常用</strong>的方向，你可以自由选择：</p>
+
+<h3>1. 传统网站方向（最通用）</h3>
+<ul>
+  <li>适用：企业官网、博客、新闻、商城页面</li>
+  <li>技术：HTML + CSS + JS + 少量插件</li>
+  <li>优点：简单、稳定、需求多</li>
+  <li>适合：想快速做网站、接小项目的人</li>
+</ul>
+
+<h3>2. 现代化框架方向（就业主流）</h3>
+<ul>
+  <li>主流框架：Vue、React、Angular</li>
+  <li>适用：后台管理系统、复杂APP页面、大型项目</li>
+  <li>优点：组件化、高效、工程化</li>
+  <li>适合：想找前端工作、进公司的人</li>
+</ul>
+
+<h3>3. 小程序 / 跨平台方向</h3>
+<ul>
+  <li>适用：微信小程序、支付宝小程序、抖音小程序</li>
+  <li>技术：类似HTML/CSS/JS</li>
+  <li>优点：市场需求极大</li>
+  <li>适合：想做轻量应用、快速上线</li>
+</ul>
+
+<h3>4. 游戏/动画/创意页面方向</h3>
+<ul>
+  <li>技术：Canvas、WebGL、Three.js、GSAP</li>
+  <li>适用：HTML5游戏、3D展示、炫酷动画页</li>
+  <li>优点：视觉效果强、有趣</li>
+  <li>适合：喜欢创意、视觉、设计的人</li>
+</ul>
+
+<h3>5. 低代码/可视化方向</h3>
+<ul>
+  <li>适用：快速搭建系统、大屏数据可视化</li>
+  <li>优点：开发极快、不用写大量代码</li>
+  <li>适合：想高效完成工作的人</li>
+</ul>
+
+<h2>七、大家一般怎么学前端？（最常见路线）</h2>
+<ol>
+  <li>学 HTML：学会标签、结构、语义化</li>
+  <li>学 CSS：学会布局、居中、响应式、Flex/Grid</li>
+  <li>学 JS：基础语法、DOM操作、事件、异步</li>
+  <li>学一个主流框架：Vue 或 React</li>
+  <li>做项目：博客、商城、管理系统</li>
+  <li>找方向：网站、小程序、游戏、可视化等</li>
+</ol>
+
+<h2>八、学习建议（中立、通用）</h2>
+<ul>
+  <li>不要一开始就追求“最好看”“最炫酷”</li>
+  <li>先把基础打牢，再选框架</li>
+  <li>多写代码，少看视频不动手</li>
+  <li>做自己能完成的小项目，逐步提升</li>
+  <li>风格、工具、框架都可以自由选择</li>
+</ul>
+
+<h2>九、总结</h2>
+<p>
+前端是一个<strong>入门简单、方向极多、选择自由</strong>的领域。
+没有必须要学的风格，也没有唯一正确的路。
+</p>
+<p>
+你可以做网站、做游戏、做管理系统……
+<strong>你喜欢什么，就去学什么。</strong>
+</p>
+
+<footer>© 2026 - 现在 极码智联科技</footer>
+
+<script>
+window.addEventListener('load', function () {
+  setTimeout(() => {
+    document.querySelector('.loader').classList.add('hidden');
+    document.body.classList.add('loaded');
+  }, 800);
+});
+</script>
+</body>
+</html>

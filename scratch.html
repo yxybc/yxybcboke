@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scratch 零基础完整教程</title>
+    <style>
+        /* 加载动画 */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #121212;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 2s ease;
+        }
+
+        .loader.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loader-spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid #282828;
+            border-top: 3px solid #8ab4f8;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            max-width: 700px;
+            margin: 60px auto;
+            padding: 0 22px;
+            font: 16px/1.8 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: linear-gradient(135deg, oklab(34.846% 0 -0.00004), #103550);
+            background-attachment: fixed;
+            color: #e0e0e0;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+
+        body.loaded {
+            opacity: 1;
+        }
+
+        a {
+            color: #8ab4f8;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin: 20px 0 30px;
+            background: linear-gradient(to right, #8ab4f8, #cfe0ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            margin: 50px 0 20px;
+            color: #cfe0ff;
+            border-left: 3px solid #8ab4f8;
+            padding-left: 12px;
+        }
+
+        h3 {
+            font-size: 1.15rem;
+            margin: 30px 0 12px;
+            color: #a0c8ff;
+        }
+
+        p {
+            margin-bottom: 18px;
+        }
+
+        ul,
+        ol {
+            margin: 0 0 20px 22px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .back-home {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: #ccc;
+        }
+
+        .tip {
+            background: rgba(138, 180, 248, 0.08);
+            border-left: 3px solid #8ab4f8;
+            padding: 14px 16px;
+            margin: 22px 0;
+            border-radius: 0 6px 6px 0;
+        }
+
+        footer {
+            margin-top: 80px;
+            padding-top: 20px;
+            border-top: 1px solid #2a2a2a;
+            color: #999;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 加载动画 -->
+    <div class="loader">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <a href="博客.html" class="back-home">← 返回首页</a>
+    <h1>Scratch 零基础完整教程</h1>
+
+    <div class="tip">
+        本教程<strong>完全零基础</strong>，不用会英语、不用会打字，
+        只要会拖动积木，就能做出动画、游戏、故事。
+    </div>
+
+    <h2>一、Scratch 是什么？</h2>
+    <p>
+        Scratch 是麻省理工学院（MIT）设计的<strong>少儿编程工具</strong>，
+        但它同样适合<strong>任何零基础想入门编程的人</strong>。
+    </p>
+    <p>特点：</p>
+    <ul>
+        <li>不用写代码，只用<strong>拖动积木</strong></li>
+        <li>可以做：动画、故事、小游戏、音乐互动</li>
+        <li>中文界面，免费使用</li>
+        <li>锻炼逻辑思维、创造力</li>
+    </ul>
+
+    <h2>二、打开 Scratch（国内稳定可访问）</h2>
+    <p>不需要安装，直接打开网页就能用，推荐以下平台：</p>
+    <ol>
+        <li>打开浏览器</li>
+        <li>访问国内稳定平台：
+            <ul>
+                <li>网易卡搭（推荐）：<a href="https://kada.163.com/" target="_blank">kada.163.com</a></li>
+                <li>好好搭搭：<a href="https://www.haohaodada.com/" target="_blank">haohaodada.com</a></li>
+                <li>慧编程在线：<a href="https://ide.makeblock.com/" target="_blank">ide.makeblock.com</a></li>
+            </ul>
+        </li>
+        <li>注册/登录后，进入 Scratch 3.0 编辑器即可开始创作</li>
+    </ol>
+
+    <h2>三、认识界面（5 个核心区域）</h2>
+    <h3>1. 舞台区</h3>
+    <p>右上角：角色在这里动起来，是最终展示效果的地方。</p>
+
+    <h3>2. 角色区</h3>
+    <p>舞台下面：可以添加小猫、人物、动物、汽车等角色。</p>
+
+    <h3>3. 积木区</h3>
+    <p>左边：所有指令都在这里，像积木一样拖动。</p>
+
+    <h3>4. 脚本区</h3>
+    <p>中间：把积木拖到这里拼起来。</p>
+
+    <h3>5. 背景区</h3>
+    <p>右下角：给舞台添加背景。</p>
+
+    <h2>四、第一个作品：让小猫动起来</h2>
+    <h3>步骤 1：选择角色</h3>
+    <p>默认就是小猫，不用改。</p>
+
+    <h3>步骤 2：拖动积木</h3>
+    <ol>
+        <li>点开「事件」</li>
+        <li>拖出：<strong>当绿旗被点击</strong></li>
+        <li>点开「运动」</li>
+        <li>拖出：<strong>移动 10 步</strong></li>
+        <li>再拖出：<strong>右转 15 度</strong></li>
+    </ol>
+
+    <h3>步骤 3：运行</h3>
+    <p>点击舞台上方的<strong>绿旗</strong>，小猫就会动了。</p>
+
+    <h2>五、第二个作品：让小猫说话</h2>
+    <ol>
+        <li>点开「外观」</li>
+        <li>拖出：<strong>说“你好!”2 秒</strong></li>
+        <li>把文字改成你想说的话</li>
+    </ol>
+    <p>运行后，小猫会说话、打招呼。</p>
+
+    <h2>六、第三个作品：按键控制角色</h2>
+    <ol>
+        <li>事件 → <strong>当按下 空格键</strong></li>
+        <li>运动 → <strong>移动 10 步</strong></li>
+    </ol>
+    <p>按一下空格，角色就动一下。</p>
+    <p>你可以改成：上、下、左、右键。</p>
+
+    <h2>七、能做什么有趣的项目？</h2>
+    <ul>
+        <li>打地鼠游戏</li>
+        <li>跑酷游戏</li>
+        <li>飞机大战</li>
+        <li>迷宫游戏</li>
+        <li>动画短片</li>
+        <li>故事绘本</li>
+        <li>音乐节奏游戏</li>
+    </ul>
+
+    <h2>八、学习路线（零基础推荐）</h2>
+    <ol>
+        <li>学会移动、说话、切换造型</li>
+        <li>学会按键控制、鼠标控制</li>
+        <li>学会循环、条件判断（基础逻辑）</li>
+        <li>做一个简单小游戏</li>
+        <li>慢慢加难度：计分、关卡、音效</li>
+    </ol>
+
+    <h2>九、写给零基础的你</h2>
+    <p>
+        Scratch 是<strong>最友好的编程入门</strong>，
+        不需要天赋，不需要基础，只需要一点点耐心。
+    </p>
+    <p>
+        只要你会拖积木，就能做出属于自己的作品。
+    </p>
+
+    <footer>© 2026 - 现在 极码智联科技</footer>
+
+    <script>
+        window.addEventListener('load', function () {
+            const loader = document.querySelector('.loader');
+            const body = document.querySelector('body');
+            setTimeout(() => {
+                loader.classList.add('hidden');
+                body.classList.add('loaded');
+            }, 800);
+        });
+    </script>
+</body>
+
+</html>
